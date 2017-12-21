@@ -34,9 +34,6 @@ LEARNING_RATE_START = 0.015     # Base learning rate to start with
 DECAY_STEP =  1e6      
 DECAY_RATE = .98        # Multiply (LEARNING_RATE x DECAY_RATE) each DECAY_STEP steps
 
-IMAGE_AUGMENTATION = False
-AUGMENTATION_RATE = 1 #number of modified copies to make per image
-
 DROPOUT_FLAG = True #perform dropout during training
 DROPOUT = 0.1
 
@@ -48,6 +45,17 @@ PROCESSING_UNIT = 'GPU:0'   #Define CPU or GPU usage with this variable as 'CPU:
 IMG_PATCH_SIZE = 16
 # batch size of label image while extracting
 LABEL_PATCH_SIZE = 4
+IMAGE_AUGMENTATION = True
+AUGMENTATION_RATE = 4 #number of modified copies to make per image
+#PARAMETERS FOR IMAGE AUGMENTATION #
+datagen = ImageDataGenerator(
+        rotation_range=5,          #range for random rotations
+        width_shift_range=0.0,
+        height_shift_range=0.0,
+        shear_range=0,
+        zoom_range=0.05,
+        horizontal_flip=True,
+        fill_mode='reflect')        #fills void corners of image reflecting it																  																	  
 #-----------------------------------------------------------------------------#
 
 
